@@ -15,7 +15,7 @@ window.PORTFOLIO = {
 
   socials: [
     { label: "GitHub", url: "https://github.com/vaibxx" },
-    { label: "Live demos", url: "https://vaibxx.github.io/Vaibhav-Portfolio/" }
+    { label: "Smart SQL app", url: "https://vaibxx.github.io/SMART-SQL-ASSISTANT/" }
   ],
 
   about: {
@@ -64,7 +64,10 @@ window.PORTFOLIO = {
       description:
         "Never lose a coding session to a usage limit. ContextFlow runs your coding agent, and when it hits its limit it writes a handoff brief and starts the next agent on the same repo, with git checkpoints in between.",
       stack: ["TypeScript", "Node.js", "CLI", "Git", "Agent orchestration"],
-      links: [],
+      links: [
+        { label: "See the demo", url: "https://github.com/vaibxx/ContextFlow#try-it-in-10-seconds" },
+        { label: "Source", url: "https://github.com/vaibxx/ContextFlow" }
+      ],
       colors: ["#00ff9d", "#00796b", "#d4ff00"],
       image: ""
     },
@@ -76,7 +79,6 @@ window.PORTFOLIO = {
         "A bounded, tool-using agent that works out why an AI product's eval pass rate dropped. Did answer quality really fall, or did the release just get a harder mix of questions? It shows every action and the evidence behind its verdict.",
       stack: ["Python", "LLM tool use", "Evals", "OpenAI-compatible APIs", "Unit tests"],
       links: [
-        { label: "Live demo", url: "https://vaibxx.github.io/Vaibhav-Portfolio/#signal" },
         { label: "Source", url: "https://github.com/vaibxx/signal-investigator" }
       ],
       colors: ["#ff3b1f", "#ffb800", "#fff3b0"],
@@ -87,10 +89,10 @@ window.PORTFOLIO = {
       category: "Text-to-SQL",
       year: "2025",
       description:
-        "Chat with a PostgreSQL database in plain English. Gemini writes the SQL, charts are generated automatically, and destructive writes need confirmation with a data preview. An automated UI test runs on every push.",
+        "Chat with a PostgreSQL database in plain English. Gemini writes the SQL and a real PostgreSQL engine runs it right in your browser, with auto charts and a dry-run preview before any write. Bring your own Gemini key; it is never stored.",
       stack: ["Python", "Streamlit", "Gemini", "PostgreSQL", "Plotly"],
       links: [
-        { label: "Try it", url: "https://vaibxx.github.io/Vaibhav-Portfolio/#work" },
+        { label: "Use the app", url: "https://vaibxx.github.io/SMART-SQL-ASSISTANT/" },
         { label: "Source", url: "https://github.com/vaibxx/SMART-SQL-ASSISTANT" }
       ],
       colors: ["#6a5cff", "#ff6ad5", "#c3f0ff"],
