@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Vaibhav Bhatt — AI Engineer</title>
+  <meta name="description" content="Vaibhav Bhatt builds AI agents and LLM tools that show their work. Explore the projects in an immersive 3D portfolio." />
+  <meta property="og:title" content="Vaibhav Bhatt — AI Engineer" />
+  <meta property="og:description" content="AI agents and LLM tools that show their work. An immersive 3D portfolio." />
+  <meta name="theme-color" content="#050507" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <script src="content.js?v=3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="main.js?v=3"></script>
+</head>
+<body>
+  <canvas id="gl"></canvas>
+
+  <main id="stage"></main>
+
+  <!-- HUD -->
+  <header class="hud hud-top">
+    <button class="logo" data-go="0" data-cursor="HOME"><span id="logo-text">YN</span><sup>©</sup></button>
+    <nav class="mono">
+      <button data-go="1" data-cursor="GO">Work</button>
+      <button data-go="about" data-cursor="GO">About</button>
+      <button data-go="contact" data-cursor="GO">Contact</button>
+      <button id="ix-open" data-cursor="OPEN">Index</button>
+    </nav>
+    <div class="hud-toggles mono">
+      <button id="sound" data-cursor="AUDIO">Sound <i>off</i></button>
+      <button id="quality" data-cursor="SWITCH" title="Lower this if the site feels slow">Quality <i>High</i></button>
+    </div>
+  </header>
+  <div class="hud hud-rail" id="rail"></div>
+  <footer class="hud hud-bottom mono">
+    <span id="hint">↕ Scroll / Swipe</span>
+    <span class="count"><b id="cnt-cur">00</b><span class="sep"></span><span id="cnt-name">Intro</span></span>
+    <span id="clock"></span>
+  </footer>
+
+  <!-- Index overlay -->
+  <div id="index">
+    <div class="ix-head mono">
+      <span id="ix-title">Index</span>
+      <button class="ix-close" data-cursor="CLOSE">Close ✕</button>
+    </div>
+    <ul class="ix-list" id="ix-list"></ul>
+  </div>
+
+  <!-- Cursor -->
+  <div id="cursor"><div class="ring"></div><div class="dot"></div></div>
+  <div id="cursor-label" class="mono"></div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="ld-top mono"><span>Initializing universe</span><span id="ld-status">Compiling shaders</span></div>
+    <div class="ld-num" id="ld-num">000</div>
+    <div class="ld-bar"><i id="ld-bar"></i></div>
+  </div>
+</body>
+</html>
