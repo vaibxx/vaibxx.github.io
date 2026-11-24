@@ -76,9 +76,10 @@ window.PORTFOLIO = {
       category: "AI Evals",
       year: "2026",
       description:
-        "A bounded, tool-using agent that works out why an AI product's eval pass rate dropped. Did answer quality really fall, or did the release just get a harder mix of questions? It shows every action and the evidence behind its verdict.",
+        "A bounded, tool-using agent that works out why an AI product's eval pass rate dropped. Did answer quality really fall, or did the release just get a harder mix of questions? Try it in the browser with your own numbers and watch every step, optionally with Gemini choosing the tools.",
       stack: ["Python", "LLM tool use", "Evals", "OpenAI-compatible APIs", "Unit tests"],
       links: [
+        { label: "Use the app", url: "https://vaibxx.github.io/signal-investigator/" },
         { label: "Source", url: "https://github.com/vaibxx/signal-investigator" }
       ],
       colors: ["#ff3b1f", "#ffb800", "#fff3b0"],
