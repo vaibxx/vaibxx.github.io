@@ -434,17 +434,21 @@ const cardFS = /* glsl */ `
     float w1=max(0.,1.-abs(uMode)), w2=max(0.,1.-abs(uMode-1.)), w3=max(0.,1.-abs(uMode-2.));
     vec3 col;
     if(uHasTex>0.5){
-      vec2 t=(uv-0.5)*uTexRatio*(1.0-uHover*0.06)+0.5+(uMouse-0.5)*0.03*uHover;
-      col=vec3(texture2D(uTex,t+vec2(sh,0.)).r,texture2D(uTex,t).g,texture2D(uTex,t-vec2(sh,0.)).b);
-      if(w2>0.001) col=mix(col,art1(uv),w2*0.85);
-      if(w3>0.001) col=mix(col,art2(uv),w3*0.85);
+      // real screenshot: always visible; a glitch ripple only while switching views
+      float tr=sin(fract(uMode)*3.14159);
+      vec2 t=(uv-0.5)*uTexRatio*(1.0-uHover*0.04)+0.5+(uMouse-0.5)*0.02*uHover;
+      t.x+=sin(t.y*38.0+uTime*7.0)*0.012*tr;
+      float s2=sh*0.6+tr*0.025;
+      col=vec3(texture2D(uTex,t+vec2(s2,0.)).r,texture2D(uTex,t).g,texture2D(uTex,t-vec2(s2,0.)).b);
+      col*=1.0+tr*0.35;
     } else {
       col=artMix(uv,w1,w2,w3);
       // second (chromatic) sample only while moving / hovered
       if(sh>0.006) col.r=artMix(uv+vec2(sh,0.),w1,w2,w3).r;
     }
     // scanlines + glitch flicker
-    col*=0.9+0.1*sin(uv.y*420.0+uTime*8.0);
+    float sl=0.1-uHasTex*0.07; // lighter scanlines over real screenshots so text stays readable
+    col*=1.0-sl+sl*sin(uv.y*420.0+uTime*8.0);
     // vignette
     vec2 vv=uv*(1.0-uv.yx); col*=pow(vv.x*vv.y*16.0,0.18);
     // border glow
@@ -465,6 +469,7 @@ const cards = P.map((p, k) => {
   if (p.image) {
     texLoader.load(p.image, (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
       const ia = tex.image.width / tex.image.height, pa = CW / CH;
       u.uTexRatio.value.set(ia > pa ? pa / ia : 1, ia > pa ? 1 : ia / pa);
       u.uTex.value = tex; u.uHasTex.value = 1;
@@ -589,7 +594,8 @@ if (document.fonts) {
 function blobTarget(i) {
   const s = slides[i], z = stationZ(i), m = L.mobile;
   if (s.type === 'hero') return { x: 0, y: m ? 0.4 : 0, z: z - 1, s: m ? 1.25 : 2.1 };
-  if (s.type === 'project') return { x: L.cardX + (m ? 0 : L.visW * 0.07), y: L.cardY + (m ? 0.8 : 0), z: z - 8, s: m ? 1.05 : 2.3 };
+  // behind and above the card, so its bloom glow frames the screenshot instead of fogging it
+  if (s.type === 'project') return { x: L.cardX + (m ? 0.6 : L.visW * 0.2), y: L.cardY + (m ? 1.6 : L.visH * 0.3), z: z - 16, s: m ? 1.0 : 1.9 };
   if (s.type === 'about') return { x: m ? 0 : -L.visW * 0.26, y: m ? L.visH * 0.26 : 0.2, z: z - 2, s: m ? 0.95 : 1.7 };
   return { x: 0, y: 0, z: z - 4, s: m ? 1.5 : 2.6 };
 }

@@ -55,7 +55,7 @@ window.PORTFOLIO = {
         { label: "Source", url: "https://github.com/vaibxx/AgentReel" }
       ],
       colors: ["#2b1bff", "#00e1ff", "#ff3df2"],
-      image: ""
+      image: "images/agentreel.jpg"
     },
     {
       title: "ContextFlow",
@@ -69,7 +69,7 @@ window.PORTFOLIO = {
         { label: "Source", url: "https://github.com/vaibxx/ContextFlow" }
       ],
       colors: ["#00ff9d", "#00796b", "#d4ff00"],
-      image: ""
+      image: "images/contextflow.jpg"
     },
     {
       title: "Signal Investigator",
@@ -83,7 +83,7 @@ window.PORTFOLIO = {
         { label: "Source", url: "https://github.com/vaibxx/signal-investigator" }
       ],
       colors: ["#ff3b1f", "#ffb800", "#fff3b0"],
-      image: ""
+      image: "images/signal.jpg"
     },
     {
       title: "Smart SQL",
@@ -97,7 +97,7 @@ window.PORTFOLIO = {
         { label: "Source", url: "https://github.com/vaibxx/SMART-SQL-ASSISTANT" }
       ],
       colors: ["#6a5cff", "#ff6ad5", "#c3f0ff"],
-      image: ""
+      image: "images/smartsql.jpg"
     },
     {
       title: "Remote Browser",
@@ -108,7 +108,7 @@ window.PORTFOLIO = {
       stack: ["React", "TypeScript", "Socket.IO", "Docker", "Playwright", "noVNC"],
       links: [{ label: "Source", url: "https://github.com/vaibxx/Vaib-Browser-Teamviewer" }],
       colors: ["#ff007a", "#7a00ff", "#00f0ff"],
-      image: ""
+      image: "images/remotebrowser.jpg"
     }
   ]
 };
